@@ -1,15 +1,14 @@
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:athkar/models/dhikr_item.dart';
-import 'package:athkar/var.dart';
-import 'package:flutter/services.dart';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-
 import 'package:athkar/presentation/controllers/dhikr_controller.dart';
+import 'package:athkar/var.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -87,49 +86,57 @@ class HomeScreen extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
           child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: Colors.white.withOpacity(0.1),
-                width: 1,
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Colors.black.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  color: Colors.white.withValues(alpha: 0.1),
+                  width: 1,
+                ),
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Tasbeeh Counter',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: AutoSizeText(
+                      'Tasbeeh Counter',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      maxLines: 1,
+                      minFontSize: 16,
+                      stepGranularity: 1,
+                      overflowReplacement: Text(
+                        'Counter',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 6),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        DateFormat('dd.MM.yyyy').format(DateTime.now()),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.more_vert, color: Colors.white),
-                      onPressed: () => _showSettingsDialog(),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+                  const SizedBox(width: 10),
+                  // Container(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white.withValues(alpha: 0.2),
+                  //     borderRadius: BorderRadius.circular(20),
+                  //   ),
+                  //   child: Text(
+                  //     DateFormat('dd.MM.yyyy').format(DateTime.now()),
+                  //     style: const TextStyle(color: Colors.white),
+                  //   ),
+                  // ),
+                  const SizedBox(width: 10),
+                  IconButton(
+                    icon: const Icon(Icons.more_vert, color: Colors.white),
+                    onPressed: () => _showSettingsDialog(),
+                  ),
+                ],
+              )),
         ),
       ),
     );
@@ -192,10 +199,10 @@ class HomeScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withValues(alpha: 0.1),
                 width: 1,
               ),
             ),
@@ -287,7 +294,7 @@ class HomeScreen extends StatelessWidget {
                                     value: value,
                                     minHeight: 6,
                                     backgroundColor:
-                                        Colors.white.withOpacity(0.2),
+                                        Colors.white.withValues(alpha: 0.2),
                                     valueColor:
                                         AlwaysStoppedAnimation<Color>(value == 0
                                             ? Colors.black
@@ -353,7 +360,7 @@ class HomeScreen extends StatelessWidget {
                 Get.snackbar(
                   'تنبيه',
                   'الرجاء إدخال نص الذكر وعدد المرات',
-                  backgroundColor: Colors.red.withOpacity(0.1),
+                  backgroundColor: Colors.red.withValues(alpha: 0.1),
                   colorText: Colors.white,
                   snackPosition: SnackPosition.TOP,
                 );
@@ -364,7 +371,7 @@ class HomeScreen extends StatelessWidget {
                 Get.snackbar(
                   'تنبيه',
                   'الرجاء إدخال نص الذكر',
-                  backgroundColor: Colors.red.withOpacity(0.1),
+                  backgroundColor: Colors.red.withValues(alpha: 0.1),
                   colorText: Colors.white,
                   snackPosition: SnackPosition.TOP,
                 );
@@ -375,7 +382,7 @@ class HomeScreen extends StatelessWidget {
                 Get.snackbar(
                   'تنبيه',
                   'الرجاء إدخال ع��د المرات',
-                  backgroundColor: Colors.red.withOpacity(0.1),
+                  backgroundColor: Colors.red.withValues(alpha: 0.1),
                   colorText: Colors.white,
                   snackPosition: SnackPosition.TOP,
                 );
@@ -387,7 +394,7 @@ class HomeScreen extends StatelessWidget {
                 Get.snackbar(
                   'تنبيه',
                   'الرجاء إدخال عدد صحيح موجب',
-                  backgroundColor: Colors.red.withOpacity(0.1),
+                  backgroundColor: Colors.red.withValues(alpha: 0.1),
                   colorText: Colors.white,
                   snackPosition: SnackPosition.TOP,
                 );
@@ -470,7 +477,7 @@ class HomeScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.withOpacity(0.1),
+                    color: Colors.grey.withValues(alpha: 0.1),
                   ),
                   child: ListTile(
                     title: Text(
@@ -480,7 +487,7 @@ class HomeScreen extends StatelessWidget {
                     subtitle: LinearProgressIndicator(
                       value:
                           dhikr.target > 0 ? dhikr.current / dhikr.target : 0,
-                      backgroundColor: Colors.grey.withOpacity(0.2),
+                      backgroundColor: Colors.grey.withValues(alpha: 0.2),
                       valueColor:
                           const AlwaysStoppedAnimation<Color>(Colors.teal),
                     ),
@@ -566,9 +573,9 @@ class HomeScreen extends StatelessWidget {
                 width: circleSize,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black.withValues(alpha: 0.2),
                   border: Border.all(
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.white.withValues(alpha: 0.1),
                     width: 1,
                   ),
                 ),
@@ -607,7 +614,7 @@ class HomeScreen extends StatelessWidget {
                             shadows: [
                               Shadow(
                                 blurRadius: 10,
-                                color: Colors.black.withOpacity(0.3),
+                                color: Colors.black.withValues(alpha: 0.3),
                                 offset: const Offset(2, 2),
                               ),
                             ],
@@ -643,9 +650,9 @@ class HomeScreen extends StatelessWidget {
             width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withValues(alpha: 0.2),
               border: Border.all(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withValues(alpha: 0.1),
                 width: 1,
               ),
             ),

@@ -1,14 +1,13 @@
 import 'dart:async';
+import 'dart:math' show Random, pi;
 
-import 'package:athkar/var.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:athkar/data/datasources/local_storage.dart';
 import 'package:athkar/models/dhikr_item.dart';
+import 'package:athkar/var.dart';
 import 'package:confetti/confetti.dart';
-import 'dart:math' show Random, pi;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
-import 'package:flutter/services.dart';
 
 class AppController extends GetxController {
   final _storage = Get.find<LocalStorage>();
@@ -186,7 +185,7 @@ class AppController extends GetxController {
         Get.snackbar(
           'تنبيه',
           'الرجاء إضافة ذكر جديد',
-          backgroundColor: Colors.white.withOpacity(0.1),
+          backgroundColor: Colors.white.withValues(alpha: 0.1),
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
           margin: const EdgeInsets.all(16),
@@ -255,6 +254,7 @@ class AppController extends GetxController {
   }
 
   void _showCelebration() {
+    final isDarkMode = Get.isDarkMode;
     confettiController.play();
     Get.dialog(
       Stack(
@@ -376,30 +376,39 @@ class AppController extends GetxController {
             ),
           ),
           AlertDialog(
-            backgroundColor: Colors.white.withOpacity(0.9),
+            backgroundColor: isDarkMode
+                ? Colors.black.withValues(alpha: 0.9)
+                : Colors.white.withValues(alpha: 0.9),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            title: const Text(
+            title: Text(
               'مبروك!',
               textAlign: TextAlign.center,
               style: TextStyle(
+                color: isDarkMode ? Colors.white : Colors.black,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            content: const Text(
+            content: Text(
               'لقد أكملت الذكر',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                color: isDarkMode ? Colors.white : Colors.black,
+                fontSize: 18,
+              ),
             ),
             actions: [
               Center(
                 child: TextButton(
                   onPressed: () => Get.back(),
-                  child: const Text(
+                  child: Text(
                     'حسناً',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      color: isDarkMode ? Colors.white : Colors.black,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
