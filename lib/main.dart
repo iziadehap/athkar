@@ -1,54 +1,43 @@
-import 'package:athkar/presentation/screens/splash_screen.dart';
-import 'package:athkar/data/datasources/local_storage.dart';
-import 'package:athkar/var.dart';
+import 'package:athkar/core/app_shell/app_shell_ui.dart';
+import 'package:athkar/core/constants/app_constants.dart';
+import 'package:athkar/core/constants/app_theme.dart';
+import 'package:athkar/fauther/home/controller/tasbeeh_controller.dart';
+import 'package:athkar/fauther/settings/controller/settings_controller.dart';
+import 'package:athkar/fauther/statistics/controller/statistics_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
-  
-  runApp(MyApp(prefs: prefs));
+  await GetStorage.init();
+
+  Get.put(SettingsController(), permanent: true);
+  Get.put(StatisticsController(), permanent: true);
+  Get.put(TasbeehController(), permanent: true);
+
+  runApp(const NurTasbeehApp());
 }
 
-class MyApp extends StatelessWidget {
-  final SharedPreferences prefs;
-  
-  const MyApp({super.key, required this.prefs});
+class NurTasbeehApp extends StatelessWidget {
+  const NurTasbeehApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
-    
-    Get.put(LocalStorage(prefs));
-    
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        primaryColor: Colors.teal,
-        colorScheme: ColorScheme.light(
-          primary: Colors.teal,
-          secondary: Colors.tealAccent,
-          surface: Colors.white,
-          background: Colors.white,
-          onBackground: Colors.black87,
-          onSurface: Colors.black87,
+    final settingsController = Get.find<SettingsController>();
+
+    return Obx(
+      () => GetMaterialApp(
+        title: AppStrings.appTitle,
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightThemeData,
+        darkTheme: AppTheme.themeData.copyWith(
+          textTheme: GoogleFonts.interTextTheme(AppTheme.themeData.textTheme),
         ),
+        themeMode: settingsController.materialThemeMode,
+        home: const AppShell(),
       ),
-      darkTheme: ThemeData.dark().copyWith(
-        primaryColor: Colors.teal,
-        colorScheme: ColorScheme.dark(
-          primary: Colors.teal,
-          secondary: Colors.tealAccent,
-          surface: Colors.grey[900]!,
-          background: Colors.black,
-          onBackground: Colors.white,
-          onSurface: Colors.white,
-        ),
-      ),
-      home: const SplashScreen(),
     );
   }
 }

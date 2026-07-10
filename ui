@@ -1,0 +1,1316 @@
+home scree 
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nur Tasbeeh - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    .glass-card {
+      background: rgba(21, 27, 45, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(245, 245, 220, 0.1);
+    }
+
+    .tap-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(149, 211, 186, 0.4);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .counter-transition {
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .progress-ring-circle {
+      transition: stroke-dashoffset 0.35s;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-fixed": "#241a00",
+                  "surface-container-highest": "#2e3447",
+                  "error": "#ffb4ab",
+                  "inverse-on-surface": "#2a3043",
+                  "on-tertiary": "#3c2f00",
+                  "secondary-fixed": "#e4e4cc",
+                  "surface-bright": "#33394c",
+                  "outline-variant": "#404944",
+                  "primary-fixed-dim": "#95d3ba",
+                  "secondary-container": "#494a38",
+                  "on-surface": "#dce1fb",
+                  "on-secondary-fixed": "#1b1d0e",
+                  "tertiary-fixed-dim": "#e9c349",
+                  "primary": "#95d3ba",
+                  "on-tertiary-fixed-variant": "#574500",
+                  "on-error": "#690005",
+                  "tertiary-container": "#cca72f",
+                  "inverse-surface": "#dce1fb",
+                  "primary-fixed": "#b0f0d6",
+                  "on-primary-container": "#80bea6",
+                  "secondary": "#c8c8b0",
+                  "secondary-fixed-dim": "#c8c8b0",
+                  "surface-container": "#191f31",
+                  "on-primary": "#003829",
+                  "surface": "#0c1324",
+                  "surface-container-lowest": "#070d1f",
+                  "error-container": "#93000a",
+                  "surface-variant": "#2e3447",
+                  "on-primary-fixed": "#002117",
+                  "tertiary-fixed": "#ffe088",
+                  "surface-tint": "#95d3ba",
+                  "on-error-container": "#ffdad6",
+                  "on-secondary": "#303221",
+                  "on-secondary-fixed-variant": "#474836",
+                  "inverse-primary": "#2b6954",
+                  "surface-container-low": "#151b2d",
+                  "on-background": "#dce1fb",
+                  "primary-container": "#064e3b",
+                  "background": "#0c1324",
+                  "surface-container-high": "#23293c",
+                  "tertiary": "#e9c349",
+                  "on-tertiary-container": "#4e3d00",
+                  "on-secondary-container": "#b9baa3",
+                  "on-primary-fixed-variant": "#0b513d",
+                  "on-surface-variant": "#bfc9c3",
+                  "outline": "#89938d",
+                  "surface-dim": "#0c1324"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "section-gap": "48px",
+                  "container-padding": "24px",
+                  "base": "8px",
+                  "touch-target-min": "56px",
+                  "gutter": "16px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Inter"],
+                  "display-arabic": ["Amiri"],
+                  "body-lg": ["Inter"],
+                  "body-arabic": ["Noto Naskh Arabic"],
+                  "title-md": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "label-sm": ["Inter"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "display-arabic": ["48px", {"lineHeight": "64px", "fontWeight": "700"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-arabic": ["22px", {"lineHeight": "36px", "fontWeight": "400"}],
+                  "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen overflow-hidden">
+<!-- Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_1 class="fixed inset-0 w-full h-full z-0 opacity-60" -->
+<div class="fixed inset-0 w-full h-full z-0 opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_1" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_1');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Create a slow, breathing gradient effect
+    vec3 color1 = vec3(0.02, 0.15, 0.12); // Deep Emerald
+    vec3 color2 = vec3(0.01, 0.08, 0.1);  // Midnight Blue-Green
+    
+    float pulse = sin(u_time * 0.5) * 0.5 + 0.5;
+    float dist = distance(uv, vec2(0.5 + cos(u_time * 0.3) * 0.2, 0.5 + sin(u_time * 0.4) * 0.2));
+    
+    vec3 color = mix(color1, color2, dist + pulse * 0.1);
+    
+    // Add a very subtle "shimmer"
+    float shimmer = sin(uv.x * 10.0 + uv.y * 10.0 + u_time) * 0.01;
+    color += shimmer;
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_1 -->
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/10">
+<div class="flex justify-between items-center px-container-padding py-base w-full max-w-[540px] mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary-fixed-dim/30 p-0.5 overflow-hidden active:scale-90 transition-transform cursor-pointer">
+<img alt="User Profile" class="w-full h-full rounded-full bg-surface-container" data-alt="A detailed digital illustration of a stylized user avatar with a serene expression, wearing elegant minimalist attire. The lighting is soft and ethereal, reflecting a dark emerald and gold color palette consistent with a spiritual mindfulness app. The background is a clean, deep navy void." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAN27Z0qJ1w2YrY7AAxfiMBSYFWq0M91FxgyU-LqGDRr2IUyGOmrQxEE_xVtXF24db53SIn-PCs94k4m5U0f6PLTt1h3pWFiMjn0dIxQZDLaNcqHlaFCLzPXECMfwsIN8dxfVqmf__ofFTktNVq2W-ElqSS4-ECuzpv-91E7LY8PAsXTyXHQwJ25E2pSnTiL3a6rRu-UuoCmnzutgFU-rYzj_qVEEGihRyeirwOfY81bxCfh9P4H4nw4vXfPb45QAij5mvN7wCJc0"/>
+</div>
+<span class="font-display-arabic text-display-arabic text-tertiary dark:text-tertiary-fixed !text-[24px]">Nur</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full max-w-[540px] mx-auto h-screen flex flex-col items-center justify-center px-container-padding">
+<!-- Active Dhikr Section -->
+<div class="text-center mb-12 space-y-6">
+<div class="animate-pulse flex justify-center mb-2">
+<span class="bg-primary-container/40 text-primary-fixed-dim px-4 py-1 rounded-full text-[10px] font-label-sm tracking-widest uppercase border border-primary/20">Active Session</span>
+</div>
+<h1 class="font-body-arabic text-display-arabic text-on-surface drop-shadow-[0_4px_12px_rgba(149,211,186,0.2)]">
+        سُبْحَانَ اللَّهِ
+      </h1>
+<div class="space-y-1">
+<p class="font-title-md text-title-md text-secondary">Subhan Allah</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 italic uppercase tracking-tighter">Glory be to Allah</p>
+</div>
+</div>
+<!-- The Great Counter (Tap Zone) -->
+<div class="relative group cursor-pointer select-none" id="tap-zone">
+<!-- Progress Ring -->
+<svg class="w-[280px] h-[280px] -rotate-90">
+<circle class="text-surface-container-highest/30" cx="140" cy="140" fill="transparent" r="130" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-tertiary progress-ring-circle drop-shadow-[0_0_8px_rgba(233,195,73,0.5)]" cx="140" cy="140" fill="transparent" id="progress-ring" r="130" stroke="currentColor" stroke-dasharray="816.8" stroke-dashoffset="520" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<!-- Central Tap Button -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<div class="w-56 h-56 rounded-full glass-card flex flex-col items-center justify-center relative overflow-hidden shadow-2xl transition-all duration-300 group-active:scale-[0.98] group-active:bg-primary-container/20 border-white/5">
+<span class="font-headline-lg text-[64px] text-primary counter-transition" id="counter-value">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/60 -mt-2">/ 33</span>
+<!-- Subtle Glow -->
+<div class="absolute inset-0 bg-radial-gradient(circle, rgba(149,211,186,0.1) 0%, transparent 70%)"></div>
+</div>
+</div>
+<!-- Instructional Text -->
+<div class="absolute -bottom-16 left-1/2 -translate-x-1/2 text-on-surface-variant/40 font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+        TAP TO COUNT
+      </div>
+</div>
+<!-- Tasbeeh Chips (Phrases) -->
+<div class="mt-24 flex gap-3 overflow-x-auto pb-4 no-scrollbar w-full justify-center">
+<button class="flex-none px-6 py-2 rounded-full bg-primary-container text-primary-fixed-dim border border-primary/30 font-label-sm text-label-sm whitespace-nowrap">SubhanAllah</button>
+<button class="flex-none px-6 py-2 rounded-full border border-white/10 text-on-surface-variant/70 font-label-sm text-label-sm whitespace-nowrap hover:bg-white/5">Alhamdulillah</button>
+<button class="flex-none px-6 py-2 rounded-full border border-white/10 text-on-surface-variant/70 font-label-sm text-label-sm whitespace-nowrap hover:bg-white/5">Allahu Akbar</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-surface-container-low/40 backdrop-blur-2xl border-t border-white/10 rounded-t-xl shadow-lg">
+<a class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-[0_0_15px_rgba(149,211,186,0.3)] active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+</a>
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">book_5</span>
+</a>
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+</a>
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+<script>
+    let count = 12;
+    const target = 33;
+    const counterDisplay = document.getElementById('counter-value');
+    const progressRing = document.getElementById('progress-ring');
+    const tapZone = document.getElementById('tap-zone');
+    const radius = 130;
+    const circumference = 2 * Math.PI * radius;
+
+    function updateProgress() {
+      const offset = circumference - (count / target) * circumference;
+      progressRing.style.strokeDashoffset = offset;
+      counterDisplay.innerText = count;
+      
+      // Animate the counter text
+      counterDisplay.classList.add('scale-110', 'text-tertiary');
+      setTimeout(() => {
+        counterDisplay.classList.remove('scale-110', 'text-tertiary');
+      }, 100);
+    }
+
+    tapZone.addEventListener('click', (e) => {
+      // Create ripple effect
+      const ripple = document.createElement('div');
+      ripple.className = 'tap-ripple';
+      
+      const rect = tapZone.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = `${size}px`;
+      
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      tapZone.appendChild(ripple);
+      
+      ripple.addEventListener('animationend', () => {
+        ripple.remove();
+      });
+
+      // Increment count
+      count++;
+      if (count > target) {
+        count = 1;
+        // Logic for completion can go here (milestone modal)
+      }
+      updateProgress();
+
+      // Trigger Haptic if supported
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(20);
+      }
+    });
+
+    // Initial render
+    updateProgress();
+  </script>
+</body></html>
+
+
+library screen 
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nur Tasbeeh - Dhikr Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Amiri:wght@700&amp;family=Noto+Naskh+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#2e3447",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#2a3043",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e4e4cc",
+                    "surface-bright": "#33394c",
+                    "outline-variant": "#404944",
+                    "primary-fixed-dim": "#95d3ba",
+                    "secondary-container": "#494a38",
+                    "on-surface": "#dce1fb",
+                    "on-secondary-fixed": "#1b1d0e",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "primary": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-error": "#690005",
+                    "tertiary-container": "#cca72f",
+                    "inverse-surface": "#dce1fb",
+                    "primary-fixed": "#b0f0d6",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#c8c8b0",
+                    "secondary-fixed-dim": "#c8c8b0",
+                    "surface-container": "#191f31",
+                    "on-primary": "#003829",
+                    "surface": "#0c1324",
+                    "surface-container-lowest": "#070d1f",
+                    "error-container": "#93000a",
+                    "surface-variant": "#2e3447",
+                    "on-primary-fixed": "#002117",
+                    "tertiary-fixed": "#ffe088",
+                    "surface-tint": "#95d3ba",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#303221",
+                    "on-secondary-fixed-variant": "#474836",
+                    "inverse-primary": "#2b6954",
+                    "surface-container-low": "#151b2d",
+                    "on-background": "#dce1fb",
+                    "primary-container": "#064e3b",
+                    "background": "#0c1324",
+                    "surface-container-high": "#23293c",
+                    "tertiary": "#e9c349",
+                    "on-tertiary-container": "#4e3d00",
+                    "on-secondary-container": "#b9baa3",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-surface-variant": "#bfc9c3",
+                    "outline": "#89938d",
+                    "surface-dim": "#0c1324"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "48px",
+                    "container-padding": "24px",
+                    "base": "8px",
+                    "touch-target-min": "56px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "display-arabic": ["Amiri"],
+                    "body-lg": ["Inter"],
+                    "body-arabic": ["Noto Naskh Arabic"],
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-arabic": ["48px", {"lineHeight": "64px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-arabic": ["22px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0c1324;
+            color: #dce1fb;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(21, 27, 45, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 245, 220, 0.1);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(6, 78, 59, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(149, 211, 186, 0.2);
+            border-radius: 10px;
+        }
+        .active-pill {
+            background: #064e3b;
+            color: #e9c349;
+            box-shadow: 0 0 10px rgba(149, 211, 186, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-body-lg flex flex-col items-center min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/10">
+<div class="flex justify-between items-center px-container-padding py-base w-full max-w-[540px] mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden relative">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional, close-up portrait of a serene man with a short beard, wearing a minimalist neutral-toned garment. The lighting is soft and ethereal, set against a dark, emerald-tinted background that matches a premium spiritual app aesthetic. The image conveys mindfulness, tranquility, and high-end digital craftsmanship with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHA0bHxysePQ9ccGPy2ENN6SpB13c6TTtIB99qLAKPquVkSWH98LitTWN2d02f2rWqK5T806aRpG4lg5Y2jY6CLFwMIaeXL-5HrKrTOUVFw6pxmqgHXdZVdKS99A1dk28BR1HR49xxlCNubtsyeufOOTpeFCmGf4Jx1NT4NfPgcUgzaxZ4b8Yiuo8E4Jeg2OMo0a8NO7KSTBRMu8IbIHuunj6L53NqxeBlHl6kZU_X3ktpppN78GWUVxXejbrM9WUG7vFNlzeCCJ4"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary rounded-full border-2 border-surface"></div>
+</div>
+<h1 class="font-display-arabic text-display-arabic text-tertiary dark:text-tertiary-fixed !text-[28px] !leading-none">Nur</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-[540px] px-container-padding pt-24 pb-32 flex flex-col gap-6">
+<!-- Search & Filter Section -->
+<section class="flex flex-col gap-4">
+<div class="relative glass-card rounded-xl px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-body-lg placeholder:text-on-surface-variant/40" placeholder="Search adhkar..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+<button class="active-pill px-5 py-2 rounded-full font-label-sm text-label-sm whitespace-nowrap transition-all duration-300">Daily</button>
+<button class="glass-card text-on-surface-variant px-5 py-2 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-primary transition-all duration-300">Morning</button>
+<button class="glass-card text-on-surface-variant px-5 py-2 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-primary transition-all duration-300">Evening</button>
+<button class="glass-card text-on-surface-variant px-5 py-2 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-primary transition-all duration-300">Travel</button>
+</div>
+</section>
+<!-- Adhkar List -->
+<section class="flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="glass-card rounded-2xl p-5 emerald-glow flex flex-col gap-4 transition-transform hover:scale-[1.02] active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-1">SubhanAllah</h3>
+<p class="text-on-surface-variant/70 text-sm italic">Glory be to Allah</p>
+</div>
+<div class="bg-primary-container/30 px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm text-label-sm">33 reps</span>
+</div>
+</div>
+<p class="font-body-arabic text-body-arabic text-right text-tertiary">سُبْحَانَ ٱللَّٰهِ</p>
+<button class="w-full bg-primary-container text-primary font-label-sm text-label-sm py-3 rounded-xl hover:bg-primary-container/80 transition-colors flex items-center justify-center gap-2">
+                    SELECT
+                    <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-2xl p-5 flex flex-col gap-4 transition-transform hover:scale-[1.02] active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-1">Alhamdulillah</h3>
+<p class="text-on-surface-variant/70 text-sm italic">Praise be to Allah</p>
+</div>
+<div class="bg-primary-container/30 px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm text-label-sm">33 reps</span>
+</div>
+</div>
+<p class="font-body-arabic text-body-arabic text-right text-tertiary">ٱلْحَمْدُ لِلَّٰهِ</p>
+<button class="w-full bg-surface-container-highest/50 text-on-surface-variant font-label-sm text-label-sm py-3 rounded-xl hover:text-primary transition-colors flex items-center justify-center gap-2 border border-white/5">
+                    SELECT
+                    <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-2xl p-5 flex flex-col gap-4 transition-transform hover:scale-[1.02] active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-1">Allahu Akbar</h3>
+<p class="text-on-surface-variant/70 text-sm italic">Allah is Greatest</p>
+</div>
+<div class="bg-primary-container/30 px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm text-label-sm">34 reps</span>
+</div>
+</div>
+<p class="font-body-arabic text-body-arabic text-right text-tertiary">ٱللَّٰهُ أَكْبَرُ</p>
+<button class="w-full bg-surface-container-highest/50 text-on-surface-variant font-label-sm text-label-sm py-3 rounded-xl hover:text-primary transition-colors flex items-center justify-center gap-2 border border-white/5">
+                    SELECT
+                    <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Card 4 -->
+<div class="glass-card rounded-2xl p-5 flex flex-col gap-4 transition-transform hover:scale-[1.02] active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-1">La ilaha illa Allah</h3>
+<p class="text-on-surface-variant/70 text-sm italic">There is no god but Allah</p>
+</div>
+<div class="bg-primary-container/30 px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm text-label-sm">10 reps</span>
+</div>
+</div>
+<p class="font-body-arabic text-body-arabic text-right text-tertiary">لَا إِلَٰهَ إِلَّا ٱللَّٰهُ</p>
+<button class="w-full bg-surface-container-highest/50 text-on-surface-variant font-label-sm text-label-sm py-3 rounded-xl hover:text-primary transition-colors flex items-center justify-center gap-2 border border-white/5">
+                    SELECT
+                    <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Card 5 -->
+<div class="glass-card rounded-2xl p-5 flex flex-col gap-4 transition-transform hover:scale-[1.02] active:scale-[0.98] duration-300">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-1">Astaghfirullah</h3>
+<p class="text-on-surface-variant/70 text-sm italic">I seek forgiveness from Allah</p>
+</div>
+<div class="bg-primary-container/30 px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm text-label-sm">25 reps</span>
+</div>
+</div>
+<p class="font-body-arabic text-body-arabic text-right text-tertiary">أَسْتَغْفِرُ ٱللَّٰهَ</p>
+<button class="w-full bg-surface-container-highest/50 text-on-surface-variant font-label-sm text-label-sm py-3 rounded-xl hover:text-primary transition-colors flex items-center justify-center gap-2 border border-white/5">
+                    SELECT
+                    <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-surface-container-low/40 backdrop-blur-2xl border-t border-white/10 rounded-t-xl shadow-lg">
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">fingerprint</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-[0_0_15px_rgba(149,211,186,0.3)] active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">book_5</span>
+</a>
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+</a>
+<a class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+<!-- Atmospheric Glows -->
+<div class="fixed top-[-10%] right-[-10%] w-64 h-64 bg-primary-container/20 rounded-full blur-[100px] pointer-events-none z-[-1]"></div>
+<div class="fixed bottom-[10%] left-[-10%] w-80 h-80 bg-tertiary/10 rounded-full blur-[120px] pointer-events-none z-[-1]"></div>
+<script>
+        // Simple micro-interaction for category pills
+        const pills = document.querySelectorAll('.glass-card.text-on-surface-variant.px-5');
+        const activePillClass = ['active-pill', 'px-5', 'py-2', 'rounded-full', 'font-label-sm', 'text-label-sm', 'whitespace-nowrap', 'transition-all', 'duration-300'];
+        const inactivePillClass = ['glass-card', 'text-on-surface-variant', 'px-5', 'py-2', 'rounded-full', 'font-label-sm', 'text-label-sm', 'whitespace-nowrap', 'hover:text-primary', 'transition-all', 'duration-300'];
+
+        const dailyPill = document.querySelector('.active-pill');
+
+        const setActive = (target) => {
+            // Reset all
+            const allPills = [dailyPill, ...pills];
+            allPills.forEach(p => {
+                p.classList.remove('active-pill');
+                p.classList.add('glass-card', 'text-on-surface-variant');
+            });
+            // Set active
+            target.classList.add('active-pill');
+            target.classList.remove('glass-card', 'text-on-surface-variant');
+        };
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => setActive(pill));
+        });
+        dailyPill.addEventListener('click', () => setActive(dailyPill));
+
+        // Interaction for Select buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.97)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>
+
+
+
+statistics screen 
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nur - Statistics &amp; Streaks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Noto+Naskh+Arabic:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(21, 27, 45, 0.4);
+            border: 1px solid rgba(245, 245, 220, 0.05);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 40px rgba(6, 78, 59, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-highest": "#2e3447",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#2a3043",
+                        "on-tertiary": "#3c2f00",
+                        "secondary-fixed": "#e4e4cc",
+                        "surface-bright": "#33394c",
+                        "outline-variant": "#404944",
+                        "primary-fixed-dim": "#95d3ba",
+                        "secondary-container": "#494a38",
+                        "on-surface": "#dce1fb",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "primary": "#95d3ba",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-error": "#690005",
+                        "tertiary-container": "#cca72f",
+                        "inverse-surface": "#dce1fb",
+                        "primary-fixed": "#b0f0d6",
+                        "on-primary-container": "#80bea6",
+                        "secondary": "#c8c8b0",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "surface-container": "#191f31",
+                        "on-primary": "#003829",
+                        "surface": "#0c1324",
+                        "surface-container-lowest": "#070d1f",
+                        "error-container": "#93000a",
+                        "surface-variant": "#2e3447",
+                        "on-primary-fixed": "#002117",
+                        "tertiary-fixed": "#ffe088",
+                        "surface-tint": "#95d3ba",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#303221",
+                        "on-secondary-fixed-variant": "#474836",
+                        "inverse-primary": "#2b6954",
+                        "surface-container-low": "#151b2d",
+                        "on-background": "#dce1fb",
+                        "primary-container": "#064e3b",
+                        "background": "#0c1324",
+                        "surface-container-high": "#23293c",
+                        "tertiary": "#e9c349",
+                        "on-tertiary-container": "#4e3d00",
+                        "on-secondary-container": "#b9baa3",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "on-surface-variant": "#bfc9c3",
+                        "outline": "#89938d",
+                        "surface-dim": "#0c1324"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "container-padding": "24px",
+                        "base": "8px",
+                        "touch-target-min": "56px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "display-arabic": ["Amiri"],
+                        "body-lg": ["Inter"],
+                        "body-arabic": ["Noto Naskh Arabic"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-arabic": ["48px", {"lineHeight": "64px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-arabic": ["22px", {"lineHeight": "36px", "fontWeight": "400"}],
+                        "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg min-h-screen selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/10">
+<div class="flex justify-between items-center px-container-padding py-base w-full max-w-[540px] mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary/30 p-0.5 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD578lj-vCuVwfoOW3dnBymxaocNoWb7PMupYHMHSAILt2_ZFgU9IY6pO8CG9yLPtHAuEvcEQc5s38ENzgw0IraxNIDfm8JJ-Omfs2q-Q4I9_RusEVjJutp1eAsdW9813RyVItODfGJw_LWSSyi2iEo5mvlFZB7kkfX_TrsCAUpkU3ABXq3yMQMM0gQ7nPoiZoOUjAthvVhiPJlfDev-Yo33bhsqXvwx2Vj7I_o8zJB3rsPNmGlkcqq4nl9QkFUn2QbGGeDmtxl6gw"/>
+</div>
+<span class="font-display-arabic text-display-arabic text-tertiary dark:text-tertiary-fixed leading-none">Nur</span>
+</div>
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile">7</span>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 pb-32 px-container-padding w-full max-w-[540px] mx-auto overflow-x-hidden">
+<!-- Header Section -->
+<header class="mb-gutter">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Your Journey</h1>
+<p class="text-on-surface-variant/70 font-label-sm text-label-sm">Consistent remembrance brings peace to the heart.</p>
+</header>
+<!-- Bento Grid Statistics -->
+<div class="grid grid-cols-2 gap-4 mb-section-gap">
+<!-- Streak Card -->
+<div class="glass-card col-span-2 p-6 rounded-xl relative overflow-hidden emerald-glow group">
+<div class="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm tracking-widest uppercase">Current Streak</span>
+<span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-3 py-1 rounded-full">Active</span>
+</div>
+<div class="flex items-baseline gap-2">
+<h2 class="font-headline-lg text-headline-lg text-primary">7 Day Streak</h2>
+</div>
+<div class="mt-4 flex gap-1.5">
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Total Lifetime -->
+<div class="glass-card p-5 rounded-xl">
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm block mb-1">Lifetime Total</span>
+<div class="text-tertiary font-headline-lg-mobile text-headline-lg-mobile">42,500</div>
+<div class="text-on-surface-variant/40 font-label-sm text-label-sm mt-1">Dhikr count</div>
+</div>
+<!-- Best Streak -->
+<div class="glass-card p-5 rounded-xl">
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm block mb-1">Best Streak</span>
+<div class="text-on-surface font-headline-lg-mobile text-headline-lg-mobile">24 Days</div>
+<div class="text-on-surface-variant/40 font-label-sm text-label-sm mt-1">Personal record</div>
+</div>
+</div>
+<!-- Activity Chart -->
+<section class="mb-section-gap">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-title-md text-title-md text-on-surface">Weekly Activity</h3>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Last 7 days</span>
+</div>
+<div class="glass-card p-6 rounded-xl h-64 flex items-end justify-between gap-2">
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 45%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">M</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 60%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">T</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 35%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">W</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 85%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">T</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary h-full transition-all duration-1000" style="height: 100%"></div>
+</div>
+<span class="text-primary font-label-sm text-label-sm">F</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 55%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">S</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-surface-container-highest rounded-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full transition-all duration-1000" style="height: 70%"></div>
+</div>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">S</span>
+</div>
+</div>
+</section>
+<!-- Achievements -->
+<section class="mb-section-gap">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Recent Achievements</h3>
+<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
+<div class="glass-card min-w-[120px] p-4 rounded-xl flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="text-on-surface font-label-sm text-label-sm leading-tight">First 10k</span>
+</div>
+<div class="glass-card min-w-[120px] p-4 rounded-xl flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<span class="text-on-surface font-label-sm text-label-sm leading-tight">Weekly Pillar</span>
+</div>
+<div class="glass-card min-w-[120px] p-4 rounded-xl flex flex-col items-center text-center opacity-40">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-on-surface font-label-sm text-label-sm leading-tight">100 Day Habit</span>
+</div>
+</div>
+</section>
+<!-- Motivation Quote -->
+<section class="glass-card p-8 rounded-2xl relative overflow-hidden text-center border-none">
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+
+</div>
+<div class="relative z-10">
+<p class="font-body-arabic text-body-arabic text-tertiary mb-4" dir="rtl">
+                    أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">
+                    "Verily, in the remembrance of Allah do hearts find rest."
+                </p>
+<span class="block mt-4 text-on-surface-variant/40 font-label-sm text-label-sm">— Surah Ar-Ra'd [13:28]</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-surface-container-low/40 backdrop-blur-2xl border-t border-white/10 rounded-t-xl shadow-lg">
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="book_5">book_5</span>
+</button>
+<button class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-[0_0_15px_rgba(149,211,186,0.3)] active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+</button>
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for the bento cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.classList.add('scale-95');
+            });
+            card.addEventListener('mouseup', () => {
+                card.classList.remove('scale-95');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>
+
+
+setting screen 
+
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nur - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#2e3447",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#2a3043",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e4e4cc",
+                    "surface-bright": "#33394c",
+                    "outline-variant": "#404944",
+                    "primary-fixed-dim": "#95d3ba",
+                    "secondary-container": "#494a38",
+                    "on-surface": "#dce1fb",
+                    "on-secondary-fixed": "#1b1d0e",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "primary": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-error": "#690005",
+                    "tertiary-container": "#cca72f",
+                    "inverse-surface": "#dce1fb",
+                    "primary-fixed": "#b0f0d6",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#c8c8b0",
+                    "secondary-fixed-dim": "#c8c8b0",
+                    "surface-container": "#191f31",
+                    "on-primary": "#003829",
+                    "surface": "#0c1324",
+                    "surface-container-lowest": "#070d1f",
+                    "error-container": "#93000a",
+                    "surface-variant": "#2e3447",
+                    "on-primary-fixed": "#002117",
+                    "tertiary-fixed": "#ffe088",
+                    "surface-tint": "#95d3ba",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#303221",
+                    "on-secondary-fixed-variant": "#474836",
+                    "inverse-primary": "#2b6954",
+                    "surface-container-low": "#151b2d",
+                    "on-background": "#dce1fb",
+                    "primary-container": "#064e3b",
+                    "background": "#0c1324",
+                    "surface-container-high": "#23293c",
+                    "tertiary": "#e9c349",
+                    "on-tertiary-container": "#4e3d00",
+                    "on-secondary-container": "#b9baa3",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-surface-variant": "#bfc9c3",
+                    "outline": "#89938d",
+                    "surface-dim": "#0c1324"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "48px",
+                    "container-padding": "24px",
+                    "base": "8px",
+                    "touch-target-min": "56px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "display-arabic": ["Amiri"],
+                    "body-lg": ["Inter"],
+                    "body-arabic": ["Noto Naskh Arabic"],
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-arabic": ["48px", {"lineHeight": "64px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-arabic": ["22px", {"lineHeight": "36px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0c1324;
+            color: #dce1fb;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(21, 27, 45, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 245, 220, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Toggle Switch Style */
+        .toggle-switch {
+            @apply relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen font-body-lg text-body-lg overflow-x-hidden pb-32">
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-container opacity-20 blur-[120px]"></div>
+<div class="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] rounded-full bg-tertiary-container opacity-10 blur-[100px]"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/10">
+<div class="flex justify-between items-center px-container-padding py-base w-full max-w-[540px] mx-auto h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary/30 flex items-center justify-center p-0.5 overflow-hidden transition-transform active:scale-90">
+<img alt="User profile" class="w-full h-full rounded-full object-cover" data-alt="A serene close-up portrait of a mindful individual with a subtle, glowing aura against a dark, minimal background. The lighting is soft and ethereal, emphasizing tranquility and spiritual focus. The aesthetic is clean, modern, and high-end, utilizing deep emerald and soft gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU35H657Cf8oM1oJkcAM0WGTIzy2YMqLo-lww2SxjuSl_ofwjLL-ndWJ3TcOibnNLGpHTU06ADOt9j8sVgY8_QYNDMgpRmnAeqWpArt3S97LpryLFIuWLLOJzDU7VhHg3qtpdRsiCP6lCc9qfWuM6l27tYW7f-Gii_PTSRZIqw8TIcOY5bDPg122rDG4llmGQhJeZr80eM3JbDaV8o1UxmuOLlSDpeHkVNyvPOQoZsrxEQ3spQHn8ExVThrd01OoVkfrLQT4Y1iQg"/>
+</div>
+<h1 class="font-display-arabic text-display-arabic text-tertiary dark:text-tertiary-fixed !text-[24px]">Nur</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]">local_fire_department</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-24 px-container-padding max-w-[540px] mx-auto">
+<header class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Settings</h2>
+<p class="text-on-surface-variant font-label-sm">Personalize your spiritual sanctuary</p>
+</header>
+<section class="space-y-6">
+<!-- Preferences Group -->
+<div class="glass-card rounded-xl p-4">
+<h3 class="font-label-sm text-tertiary mb-4 px-2 uppercase tracking-widest">Interactions</h3>
+<div class="space-y-1">
+<!-- Haptic Toggle -->
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">vibration</span>
+<div>
+<p class="font-title-md text-on-surface">Haptic feedback</p>
+<p class="text-[12px] text-on-surface-variant/70">Tactile vibration on every tap</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Sound Toggle -->
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">volume_up</span>
+<div>
+<p class="font-title-md text-on-surface">Sound alerts</p>
+<p class="text-[12px] text-on-surface-variant/70">Soft chime at every 33 counts</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Appearance Group -->
+<div class="glass-card rounded-xl p-4">
+<h3 class="font-label-sm text-tertiary mb-4 px-2 uppercase tracking-widest">Appearance</h3>
+<div class="space-y-4">
+<!-- Theme Selector -->
+<div class="px-3">
+<p class="font-title-md text-on-surface mb-3">Theme Selection</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-primary-container text-on-primary-container flex flex-col items-center py-3 rounded-xl border border-primary/20 shadow-[0_0_15px_rgba(149,211,186,0.1)] transition-all">
+<span class="material-symbols-outlined mb-1">dark_mode</span>
+<span class="font-label-sm">Dark</span>
+</button>
+<button class="bg-surface-container text-on-surface-variant/60 flex flex-col items-center py-3 rounded-xl hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined mb-1">light_mode</span>
+<span class="font-label-sm">Light</span>
+</button>
+<button class="bg-surface-container text-on-surface-variant/60 flex flex-col items-center py-3 rounded-xl hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined mb-1">brightness_auto</span>
+<span class="font-label-sm">Auto</span>
+</button>
+</div>
+</div>
+<!-- Language Selection -->
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">translate</span>
+<div>
+<p class="font-title-md text-on-surface">Language</p>
+<p class="text-[12px] text-on-surface-variant/70">System (English)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Notifications Group -->
+<div class="glass-card rounded-xl p-4">
+<h3 class="font-label-sm text-tertiary mb-4 px-2 uppercase tracking-widest">Reminders</h3>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">notifications_active</span>
+<div>
+<p class="font-title-md text-on-surface">Daily Reminder</p>
+<p class="text-[12px] text-on-surface-variant/70">Scheduled for 05:00 AM &amp; 08:00 PM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</div>
+</div>
+</div>
+<!-- Data Group -->
+<div class="glass-card rounded-xl p-4">
+<h3 class="font-label-sm text-tertiary mb-4 px-2 uppercase tracking-widest">Storage &amp; Data</h3>
+<div class="space-y-1">
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">cloud_upload</span>
+<p class="font-title-md text-on-surface">Back up your data</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">sync</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">file_download</span>
+<p class="font-title-md text-on-surface">Export history (.json)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<button class="w-full p-4 border border-error/20 rounded-xl text-error font-title-md flex items-center justify-center gap-2 hover:bg-error/5 transition-all active:scale-95">
+<span class="material-symbols-outlined">delete_forever</span>
+                Reset all statistics
+            </button>
+<!-- Version Info -->
+<div class="text-center py-6 opacity-30">
+<p class="font-label-sm text-on-surface-variant">Nur Tasbeeh v1.4.2</p>
+<p class="text-[10px] uppercase tracking-tighter mt-1">Guided by Light</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-surface-container-low/40 backdrop-blur-2xl border-t border-white/10 rounded-t-xl shadow-lg">
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="book_5">book_5</span>
+</button>
+<button class="text-on-surface-variant/60 p-3 hover:text-primary transition-colors active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+</button>
+<button class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-[0_0_15px_rgba(149,211,186,0.3)] active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for toggle switches
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                if(this.checked) {
+                    console.log('Feature enabled');
+                    // Add subtle haptic simulation if supported
+                    if(window.navigator && window.navigator.vibrate) {
+                        window.navigator.vibrate(10);
+                    }
+                }
+            });
+        });
+
+        // Language selection simulation
+        document.querySelector('div[class*="translate"]').parentElement.parentElement.addEventListener('click', () => {
+            alert('Language selection feature coming soon.');
+        });
+    </script>
+</body></html>

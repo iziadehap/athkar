@@ -1,27 +1,14 @@
-class AppImages {
-  static const String backgroundPath = 'assets/images/mashged/';
-  static const String clickerPath = 'assets/images/clicker/';
-  static const String replayIcon = 'assets/images/replay.png';
-  static const String chickIcon = 'assets/images/chick.png';
-
-  static List<String> backgroundImages = List.generate(
-    9, 
-    (index) => '$backgroundPath${index + 1}.png'
-  );
-
-  static List<String> clickerImages = List.generate(
-    8, 
-    (index) => '$clickerPath${index + 1}.png'
-  );
-}
-
 class AppStrings {
-  static const String appTitle = 'Tasbeeh Counter';
+  static const String appTitle = 'Athkar';
+  static const String appVersion = '1.0.0';
+  static const String appTagline = 'Guided by Light';
   static const String congratulations = 'مبروك!';
   static const String completedDhikr = 'لقد أكملت الذكر';
   static const String ok = 'حسناً';
   static const String selectDhikr = 'اختر الذكر';
   static const String addDhikr = 'إضافة ذكر جديد';
+  static const String tapToCount = 'TAP TO COUNT';
+  static const String activeSession = 'ACTIVE SESSION';
 }
 
 class AppDimensions {
