@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class StatisticsController extends GetxController {
   final stats = const DailyStats().obs;
 
-  static const _dayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  static const _weekdayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   @override
   void onInit() {
@@ -72,12 +72,18 @@ class StatisticsController extends GetxController {
     return counts.map((c) => c / maxCount).toList();
   }
 
-  int get todayIndex {
-    final weekday = DateTime.now().weekday;
-    return weekday - 1;
-  }
+  /// The bar at index 6 is always today. todayIndex is therefore always 6.
+  int get todayIndex => 6;
 
-  List<String> get dayLabels => _dayLabels;
+  /// Dynamic labels that match the actual dates shown in the bar chart.
+  /// Index 0 = 6 days ago, index 6 = today.
+  List<String> get dayLabels {
+    final now = DateTime.now();
+    return List.generate(7, (i) {
+      final day = now.subtract(Duration(days: 6 - i));
+      return _weekdayLabels[day.weekday - 1];
+    });
+  }
 
   bool isAchievementUnlocked(String id) {
     final s = stats.value;

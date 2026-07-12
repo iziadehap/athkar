@@ -4,7 +4,7 @@ class Model {
   final String arThekrMean;
   final String enThekrMean;
   final int reps;
-  final String groupName; // Adjusted to lowerCamelCase per Dart style conventions
+  final String groupName;
 
   Model({
     required this.groupName,
@@ -57,4 +57,27 @@ class Model {
       reps: reps ?? this.reps,
     );
   }
+
+  // Value equality — needed so indexOf() works correctly in the library screen
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Model &&
+          runtimeType == other.runtimeType &&
+          arThekr == other.arThekr &&
+          enThekr == other.enThekr &&
+          arThekrMean == other.arThekrMean &&
+          enThekrMean == other.enThekrMean &&
+          reps == other.reps &&
+          groupName == other.groupName;
+
+  @override
+  int get hashCode => Object.hash(
+        arThekr,
+        enThekr,
+        arThekrMean,
+        enThekrMean,
+        reps,
+        groupName,
+      );
 }

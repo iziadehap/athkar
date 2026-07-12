@@ -3,9 +3,10 @@ import 'package:athkar/core/constants/app_theme.dart';
 import 'package:athkar/core/service/settings_storage.dart';
 import 'package:athkar/core/widgets/atmospheric_background.dart';
 import 'package:athkar/core/widgets/glass_card.dart';
-import 'package:athkar/core/widgets/nur_app_bar.dart';
+import 'package:athkar/core/widgets/athkar_app_bar.dart';
 import 'package:athkar/fauther/settings/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart'; // لإضافة SchedulerBinding
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 
@@ -23,11 +24,11 @@ class SettingsScreen extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.only(bottom: 30),
+            padding: const EdgeInsets.only(bottom: 120),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NurAppBar(onStreakTap: () {}),
+                const NurAppBar(),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: AppTheme.spacingLg,
@@ -45,16 +46,28 @@ class SettingsScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 24),
+
+                      // ── Interactions ──────────────────────────
                       Obx(() => _buildInteractionsGroup(controller)),
                       const SizedBox(height: 16),
+
+                      // ── Appearance ────────────────────────────
                       // Obx(() => _buildAppearanceGroup(controller)),
                       // const SizedBox(height: 16),
+
+                      // ── Reminders ─────────────────────────────
                       Obx(() => _buildRemindersGroup(context, controller)),
                       const SizedBox(height: 16),
+
+                      // ── Data ──────────────────────────────────
                       _buildDataGroup(controller),
                       const SizedBox(height: 16),
+
+                      // ── Danger zone ───────────────────────────
                       _buildResetButton(controller),
                       const SizedBox(height: 24),
+
+                      // ── App version footer ────────────────────
                       Center(
                         child: Column(
                           children: [
@@ -89,6 +102,10 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  // ────────────────────────────────────────────────────
+  // Section builders
+  // ────────────────────────────────────────────────────
+
   Widget _buildInteractionsGroup(SettingsController controller) {
     return GlassCard(
       padding: const EdgeInsets.all(16),
@@ -96,26 +113,36 @@ class SettingsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _sectionTitle('Interactions'),
-          _toggleTile(
-            icon: Icons.vibration,
-            title: 'Haptic feedback',
-            subtitle: 'Tactile vibration on every tap',
-            value: controller.settings.value.hapticEnabled,
-            onChanged: controller.toggleHaptic,
+          // إصلاح: تغليف كل ListTile بـ Material
+          Material(
+            color: Colors.transparent,
+            child: _toggleTile(
+              icon: Icons.vibration,
+              title: 'Haptic feedback',
+              subtitle: 'Tactile vibration on every tap',
+              value: controller.settings.value.hapticEnabled,
+              onChanged: controller.toggleHaptic,
+            ),
           ),
-          _toggleTile(
-            icon: Icons.volume_up,
-            title: 'Sound alerts',
-            subtitle: 'Soft chime at every 33 counts',
-            value: controller.settings.value.soundEnabled,
-            onChanged: controller.toggleSound,
+          Material(
+            color: Colors.transparent,
+            child: _toggleTile(
+              icon: Icons.volume_up,
+              title: 'Sound alerts',
+              subtitle: 'Soft chime at every 33 counts',
+              value: controller.settings.value.soundEnabled,
+              onChanged: controller.toggleSound,
+            ),
           ),
-          _toggleTile(
-            icon: Icons.bubble_chart,
-            title: 'Buble effects',
-            subtitle: 'Ripple effect on every tap',
-            value: controller.settings.value.bubleEffectEnabled,
-            onChanged: controller.toggleBubleEffect,
+          Material(
+            color: Colors.transparent,
+            child: _toggleTile(
+              icon: Icons.bubble_chart,
+              title: 'Bubble effects',
+              subtitle: 'Ripple effect on every tap',
+              value: controller.settings.value.bubbleEffectEnabled,
+              onChanged: controller.toggleBubbleEffect,
+            ),
           ),
         ],
       ),
@@ -131,9 +158,10 @@ class SettingsScreen extends StatelessWidget {
         children: [
           _sectionTitle('Appearance'),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: Text('Theme Selection', style: AppTheme.titleMd),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: Text('Theme', style: AppTheme.titleMd),
           ),
+          const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
@@ -164,52 +192,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            leading:
-                const Icon(Icons.translate, color: AppTheme.onSurfaceVariant),
-            title: Text('Language', style: AppTheme.titleMd),
-            subtitle: Text(
-              'English',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
-              ),
-            ),
-            trailing: const Icon(Icons.chevron_right,
-                color: AppTheme.onSurfaceVariant),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDataGroup(SettingsController controller) {
-    return GlassCard(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _sectionTitle('Storage & Data'),
-          ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            leading: const Icon(Icons.cloud_upload,
-                color: AppTheme.onSurfaceVariant),
-            title: Text('Back up your data', style: AppTheme.titleMd),
-            trailing: const Icon(Icons.sync, color: AppTheme.onSurfaceVariant),
-            onTap: controller.backupData,
-          ),
-          const Divider(color: Colors.white10),
-          ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            leading: const Icon(Icons.file_download,
-                color: AppTheme.onSurfaceVariant),
-            title: Text('Export history (.json)', style: AppTheme.titleMd),
-            trailing:
-                const Icon(Icons.download, color: AppTheme.onSurfaceVariant),
-            onTap: controller.exportHistory,
-          ),
         ],
       ),
     );
@@ -227,64 +209,139 @@ class SettingsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _sectionTitle('Reminders'),
-          _toggleTile(
-            icon: Icons.notifications_active,
-            title: 'Daily Reminder',
-            subtitle: 'Scheduled morning & evening reminders',
-            value: reminderEnabled,
-            onChanged: controller.toggleReminder,
+          Material(
+            color: Colors.transparent,
+            child: _toggleTile(
+              icon: Icons.notifications_active,
+              title: 'Daily Reminder',
+              subtitle: 'Scheduled morning & evening reminders',
+              value: reminderEnabled,
+              onChanged: (v) => controller.toggleReminder(v),
+            ),
           ),
           if (reminderEnabled) ...[
             const Divider(color: Colors.white10),
-            ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-              leading:
-                  const Icon(Icons.wb_sunny, color: AppTheme.onSurfaceVariant),
-              title: const Text('Morning Reminder',
-                  style: TextStyle(color: AppTheme.onSurface)),
-              subtitle: Text(
-                morningTime,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
+            // إصلاح: تغليف ListTile بـ Material
+            Material(
+              color: Colors.transparent,
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                leading: const Icon(Icons.wb_sunny,
+                    color: AppTheme.onSurfaceVariant),
+                title: const Text(
+                  'Morning Reminder',
+                  style: TextStyle(color: AppTheme.onSurface),
                 ),
+                subtitle: Text(
+                  morningTime,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
+                  ),
+                ),
+                trailing: const Icon(Icons.edit,
+                    color: AppTheme.onSurfaceVariant, size: 20),
+                onTap: () async {
+                  final time = await _selectTime(context, morningTime);
+                  if (time != null) {
+                    controller.updateMorningTime(time);
+                  }
+                },
               ),
-              trailing: const Icon(Icons.edit,
-                  color: AppTheme.onSurfaceVariant, size: 20),
-              onTap: () async {
-                final time = await _selectTime(context, morningTime);
-                if (time != null) {
-                  controller.updateMorningTime(time);
-                }
-              },
             ),
-            ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-              leading: const Icon(Icons.nights_stay,
-                  color: AppTheme.onSurfaceVariant),
-              title: const Text('Evening Reminder',
-                  style: TextStyle(color: AppTheme.onSurface)),
-              subtitle: Text(
-                eveningTime,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
+            Material(
+              color: Colors.transparent,
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                leading: const Icon(Icons.nights_stay,
+                    color: AppTheme.onSurfaceVariant),
+                title: const Text(
+                  'Evening Reminder',
+                  style: TextStyle(color: AppTheme.onSurface),
                 ),
+                subtitle: Text(
+                  eveningTime,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
+                  ),
+                ),
+                trailing: const Icon(Icons.edit,
+                    color: AppTheme.onSurfaceVariant, size: 20),
+                onTap: () async {
+                  final time = await _selectTime(context, eveningTime);
+                  if (time != null) {
+                    controller.updateEveningTime(time);
+                  }
+                },
               ),
-              trailing: const Icon(Icons.edit,
-                  color: AppTheme.onSurfaceVariant, size: 20),
-              onTap: () async {
-                final time = await _selectTime(context, eveningTime);
-                if (time != null) {
-                  controller.updateEveningTime(time);
-                }
-              },
             ),
           ]
         ],
       ),
     );
   }
+
+  Widget _buildDataGroup(SettingsController controller) {
+    return GlassCard(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _sectionTitle('Storage & Data'),
+          Material(
+            color: Colors.transparent,
+            child: ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+              leading: const Icon(Icons.file_download,
+                  color: AppTheme.onSurfaceVariant),
+              title: Text('Export history (.json)', style: AppTheme.titleMd),
+              subtitle: Text(
+                'Copies your statistics to clipboard',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: AppTheme.onSurfaceVariant.withValues(alpha: 0.7),
+                ),
+              ),
+              trailing:
+                  const Icon(Icons.download, color: AppTheme.onSurfaceVariant),
+              onTap: () {
+                // استخدام SchedulerBinding لتجنب مشاكل الأداء
+                SchedulerBinding.instance.addPostFrameCallback((_) {
+                  controller.exportHistory();
+                });
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildResetButton(SettingsController controller) {
+    return SizedBox(
+      width: double.infinity,
+      child: OutlinedButton.icon(
+        onPressed: controller.resetStatistics,
+        icon: const Icon(Icons.delete_forever, color: AppTheme.error),
+        label: Text(
+          'Reset all statistics',
+          style: AppTheme.titleMd.copyWith(color: AppTheme.error),
+        ),
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: AppTheme.error.withValues(alpha: 0.3)),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppTheme.roundedLg),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ────────────────────────────────────────────────────
+  // Helpers / sub-widgets
+  // ────────────────────────────────────────────────────
 
   Future<String?> _selectTime(
       BuildContext context, String initialTimeStr) async {
@@ -327,27 +384,6 @@ class SettingsScreen extends StatelessWidget {
       return format.format(dt);
     }
     return null;
-  }
-
-  Widget _buildResetButton(SettingsController controller) {
-    return SizedBox(
-      width: double.infinity,
-      child: OutlinedButton.icon(
-        onPressed: controller.resetStatistics,
-        icon: const Icon(Icons.delete_forever, color: AppTheme.error),
-        label: Text(
-          'Reset all statistics',
-          style: AppTheme.titleMd.copyWith(color: AppTheme.error),
-        ),
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: AppTheme.error.withValues(alpha: 0.3)),
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppTheme.roundedLg),
-          ),
-        ),
-      ),
-    );
   }
 
   Widget _sectionTitle(String title) {

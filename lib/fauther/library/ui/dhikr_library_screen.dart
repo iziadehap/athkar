@@ -2,7 +2,7 @@ import 'package:athkar/core/app_shell/app_shell_controller.dart';
 import 'package:athkar/core/constants/app_theme.dart';
 import 'package:athkar/core/model.dart';
 import 'package:athkar/core/widgets/atmospheric_background.dart';
-import 'package:athkar/core/widgets/nur_app_bar.dart';
+import 'package:athkar/core/widgets/athkar_app_bar.dart';
 import 'package:athkar/fauther/home/controller/tasbeeh_controller.dart';
 import 'package:athkar/fauther/library/controller/library_controller.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class DhikrLibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TasbeehController tasbeehController = Get.find<TasbeehController>();
-    final LibraryController libraryController = Get.put(LibraryController());
+    final LibraryController libraryController = Get.find<LibraryController>();
     final NavigationController navController = Get.find<NavigationController>();
 
     return Scaffold(
@@ -66,18 +66,22 @@ class DhikrLibraryScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                         GestureDetector(
-                          onTap: () => _showAddEditBottomSheet(context, tasbeehController),
+                          onTap: () => _showAddEditBottomSheet(
+                              context, tasbeehController),
                           child: Container(
                             height: 48,
                             width: 48,
                             decoration: BoxDecoration(
-                              color: AppTheme.primaryContainer.withValues(alpha: 0.4),
-                              borderRadius: BorderRadius.circular(AppTheme.roundedLg),
+                              color: AppTheme.primaryContainer
+                                  .withValues(alpha: 0.4),
+                              borderRadius:
+                                  BorderRadius.circular(AppTheme.roundedLg),
                               border: Border.all(
                                 color: AppTheme.primary.withValues(alpha: 0.2),
                               ),
                             ),
-                            child: const Icon(Icons.add, color: AppTheme.primary),
+                            child:
+                                const Icon(Icons.add, color: AppTheme.primary),
                           ),
                         ),
                       ],
@@ -89,8 +93,7 @@ class DhikrLibraryScreen extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: LibraryController.categories.length,
                         itemBuilder: (context, index) {
-                          final category =
-                              LibraryController.categories[index];
+                          final category = LibraryController.categories[index];
                           return Obx(() {
                             final isSelected =
                                 libraryController.selectedCategory.value ==
@@ -138,11 +141,10 @@ class DhikrLibraryScreen extends StatelessWidget {
                         libraryController.selectedCategory.value.toLowerCase();
                     final query =
                         libraryController.searchQuery.value.toLowerCase();
-                    final matchesSearch = item.enThekr
-                            .toLowerCase()
-                            .contains(query) ||
-                        item.arThekr.contains(
-                            libraryController.searchQuery.value);
+                    final matchesSearch =
+                        item.enThekr.toLowerCase().contains(query) ||
+                            item.arThekr
+                                .contains(libraryController.searchQuery.value);
                     return matchesCategory && matchesSearch;
                   }).toList();
 
@@ -151,8 +153,8 @@ class DhikrLibraryScreen extends StatelessWidget {
                       child: Text(
                         "No entries found in '${libraryController.selectedCategory.value}'",
                         style: TextStyle(
-                          color: AppTheme.onSurfaceVariant
-                              .withValues(alpha: 0.6),
+                          color:
+                              AppTheme.onSurfaceVariant.withValues(alpha: 0.6),
                         ),
                       ),
                     );
@@ -236,7 +238,8 @@ class DhikrLibraryScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           color: AppTheme.primaryContainer
                                               .withValues(alpha: 0.3),
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Text(
                                           '${item.reps} reps',
@@ -277,9 +280,14 @@ class DhikrLibraryScreen extends StatelessWidget {
                                             value: 'edit',
                                             child: Row(
                                               children: [
-                                                Icon(Icons.edit, size: 16, color: AppTheme.onSurface),
+                                                Icon(Icons.edit,
+                                                    size: 16,
+                                                    color: AppTheme.onSurface),
                                                 SizedBox(width: 8),
-                                                Text('Edit', style: TextStyle(color: AppTheme.onSurface)),
+                                                Text('Edit',
+                                                    style: TextStyle(
+                                                        color: AppTheme
+                                                            .onSurface)),
                                               ],
                                             ),
                                           ),
@@ -287,9 +295,13 @@ class DhikrLibraryScreen extends StatelessWidget {
                                             value: 'delete',
                                             child: Row(
                                               children: [
-                                                Icon(Icons.delete, size: 16, color: AppTheme.error),
+                                                Icon(Icons.delete,
+                                                    size: 16,
+                                                    color: AppTheme.error),
                                                 SizedBox(width: 8),
-                                                Text('Delete', style: TextStyle(color: AppTheme.error)),
+                                                Text('Delete',
+                                                    style: TextStyle(
+                                                        color: AppTheme.error)),
                                               ],
                                             ),
                                           ),
@@ -306,7 +318,7 @@ class DhikrLibraryScreen extends StatelessWidget {
                                   item.arThekr,
                                   textDirection: TextDirection.rtl,
                                   style: const TextStyle(
-                                    fontFamily: AppTheme.fontAmiri,
+                                    // fontFamily: AppTheme.fontAmiri,
                                     fontSize: 24,
                                     color: AppTheme.tertiary,
                                   ),
@@ -369,11 +381,13 @@ class DhikrLibraryScreen extends StatelessWidget {
     );
   }
 
-  void _confirmDelete(BuildContext context, TasbeehController controller, int index) {
+  void _confirmDelete(
+      BuildContext context, TasbeehController controller, int index) {
     Get.dialog(
       AlertDialog(
-        backgroundColor: const Color(0xFF191F31),
-        title: const Text('Delete Dhikr?', style: TextStyle(color: AppTheme.onSurface)),
+        backgroundColor: AppTheme.surfaceContainerHigh,
+        title: const Text('Delete Dhikr?',
+            style: TextStyle(color: AppTheme.onSurface)),
         content: const Text(
           'Are you sure you want to remove this dhikr from your library?',
           style: TextStyle(color: AppTheme.onSurfaceVariant),
@@ -391,11 +405,12 @@ class DhikrLibraryScreen extends StatelessWidget {
                 'Dhikr Removed',
                 'The dhikr has been deleted.',
                 snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: const Color(0xFF191F31),
-                colorText: const Color(0xFFDCE1FB),
+                backgroundColor: AppTheme.surfaceContainerHigh,
+                colorText: AppTheme.onSurface,
               );
             },
-            child: const Text('Delete', style: TextStyle(color: AppTheme.error)),
+            child:
+                const Text('Delete', style: TextStyle(color: AppTheme.error)),
           ),
         ],
       ),
@@ -419,13 +434,13 @@ class DhikrLibraryScreen extends StatelessWidget {
     Get.bottomSheet(
       Container(
         padding: const EdgeInsets.all(24),
-        decoration: const BoxDecoration(
-          color: Color(0xFF0C1324),
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: AppTheme.surfaceContainerLow,
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(24),
             topRight: Radius.circular(24),
           ),
-          border: Border(
+          border: const Border(
             top: BorderSide(color: Colors.white10),
           ),
         ),
@@ -440,31 +455,37 @@ class DhikrLibraryScreen extends StatelessWidget {
                   Text(
                     isEdit ? 'Edit Dhikr' : 'Add New Dhikr',
                     style: const TextStyle(
-                      fontFamily: AppTheme.fontInter,
+                      // fontFamily: AppTheme.fontInter,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppTheme.onSurface,
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.close, color: AppTheme.onSurfaceVariant),
+                    icon: const Icon(Icons.close,
+                        color: AppTheme.onSurfaceVariant),
                     onPressed: () => Get.back(),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-              _buildField('English Phrase', enTitleCtrl, hint: 'e.g. SubhanAllah'),
+              _buildField('English Phrase', enTitleCtrl,
+                  hint: 'e.g. SubhanAllah'),
               const SizedBox(height: 12),
-              _buildField('Arabic Phrase', arTitleCtrl, hint: 'e.g. سُبْحَانَ اللَّهِ', alignRight: true),
+              _buildField('Arabic Phrase', arTitleCtrl,
+                  hint: 'e.g. سُبْحَانَ اللَّهِ', alignRight: true),
               const SizedBox(height: 12),
-              _buildField('Translation / Meaning', enMeanCtrl, hint: 'e.g. Glory be to Allah'),
+              _buildField('Translation / Meaning', enMeanCtrl,
+                  hint: 'e.g. Glory be to Allah'),
               const SizedBox(height: 12),
-              _buildField('Arabic Explanation (Optional)', arMeanCtrl, hint: 'e.g. سبحان الله وبحمده', alignRight: true),
+              _buildField('Arabic Explanation (Optional)', arMeanCtrl,
+                  hint: 'e.g. سبحان الله وبحمده', alignRight: true),
               const SizedBox(height: 12),
               Row(
                 children: [
                   Expanded(
-                    child: _buildField('Target Reps', repsCtrl, hint: '33', keyboardType: TextInputType.number),
+                    child: _buildField('Target Reps', repsCtrl,
+                        hint: '33', keyboardType: TextInputType.number),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -481,7 +502,8 @@ class DhikrLibraryScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 6),
                         Obx(() => Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               decoration: BoxDecoration(
                                 color: AppTheme.surfaceContainerLow,
                                 borderRadius: BorderRadius.circular(8),
@@ -491,14 +513,17 @@ class DhikrLibraryScreen extends StatelessWidget {
                                 child: DropdownButton<String>(
                                   value: selectedCategory.value,
                                   dropdownColor: const Color(0xFF191F31),
-                                  icon: const Icon(Icons.arrow_drop_down, color: AppTheme.primary),
-                                  style: const TextStyle(color: AppTheme.onSurface),
-                                  items: ['Daily', 'Morning', 'Evening', 'Travel']
-                                      .map((cat) => DropdownMenuItem(
-                                            value: cat,
-                                            child: Text(cat),
-                                          ))
-                                      .toList(),
+                                  icon: const Icon(Icons.arrow_drop_down,
+                                      color: AppTheme.primary),
+                                  style: const TextStyle(
+                                      color: AppTheme.onSurface),
+                                  items:
+                                      ['Daily', 'Morning', 'Evening', 'Travel']
+                                          .map((cat) => DropdownMenuItem(
+                                                value: cat,
+                                                child: Text(cat),
+                                              ))
+                                          .toList(),
                                   onChanged: (val) {
                                     if (val != null) {
                                       selectedCategory.value = val;
@@ -530,8 +555,8 @@ class DhikrLibraryScreen extends StatelessWidget {
                         'Required Fields Missing',
                         'Please fill in at least the English and Arabic phrases.',
                         snackPosition: SnackPosition.BOTTOM,
-                        backgroundColor: const Color(0xFF1F151B),
-                        colorText: AppTheme.error,
+                        backgroundColor: AppTheme.errorContainer,
+                        colorText: AppTheme.onErrorContainer,
                       );
                       return;
                     }
@@ -539,7 +564,9 @@ class DhikrLibraryScreen extends StatelessWidget {
                     final newModel = Model(
                       groupName: selectedCategory.value,
                       arThekr: arTitleCtrl.text,
-                      arThekrMean: arMeanCtrl.text.isEmpty ? arTitleCtrl.text : arMeanCtrl.text,
+                      arThekrMean: arMeanCtrl.text.isEmpty
+                          ? arTitleCtrl.text
+                          : arMeanCtrl.text,
                       enThekr: enTitleCtrl.text,
                       enThekrMean: enMeanCtrl.text,
                       reps: reps,
@@ -556,11 +583,13 @@ class DhikrLibraryScreen extends StatelessWidget {
                       isEdit ? 'Dhikr Updated' : 'Dhikr Added',
                       'The dhikr has been saved successfully.',
                       snackPosition: SnackPosition.BOTTOM,
-                      backgroundColor: const Color(0xFF191F31),
-                      colorText: const Color(0xFFDCE1FB),
+                      backgroundColor: AppTheme.surfaceContainerHigh,
+                      colorText: AppTheme.onSurface,
                     );
                   },
-                  child: Text(isEdit ? 'SAVE CHANGES' : 'ADD DHIKR', style: AppTheme.labelSm.copyWith(color: AppTheme.onPrimary)),
+                  child: Text(isEdit ? 'SAVE CHANGES' : 'ADD DHIKR',
+                      style:
+                          AppTheme.labelSm.copyWith(color: AppTheme.onPrimary)),
                 ),
               ),
               const SizedBox(height: 24),
@@ -607,7 +636,8 @@ class DhikrLibraryScreen extends StatelessWidget {
               hintText: hint,
               hintStyle: const TextStyle(color: Colors.white24, fontSize: 14),
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             ),
           ),
         ),

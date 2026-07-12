@@ -115,7 +115,7 @@ home scree
                   "touch-target-min": "56px",
                   "gutter": "16px"
           },
-          "fontFamily": {
+          "// fontFamily": {
                   "headline-lg-mobile": ["Inter"],
                   "display-arabic": ["Amiri"],
                   "body-lg": ["Inter"],
@@ -461,7 +461,7 @@ library screen
                     "touch-target-min": "56px",
                     "gutter": "16px"
             },
-            "fontFamily": {
+            "// fontFamily": {
                     "headline-lg-mobile": ["Inter"],
                     "display-arabic": ["Amiri"],
                     "body-lg": ["Inter"],
@@ -796,7 +796,7 @@ statistics screen
                         "touch-target-min": "56px",
                         "gutter": "16px"
                     },
-                    "fontFamily": {
+                    "// fontFamily": {
                         "headline-lg-mobile": ["Inter"],
                         "display-arabic": ["Amiri"],
                         "body-lg": ["Inter"],
@@ -1088,7 +1088,7 @@ setting screen
                     "touch-target-min": "56px",
                     "gutter": "16px"
             },
-            "fontFamily": {
+            "// fontFamily": {
                     "headline-lg-mobile": ["Inter"],
                     "display-arabic": ["Amiri"],
                     "body-lg": ["Inter"],

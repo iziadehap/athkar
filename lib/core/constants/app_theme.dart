@@ -79,13 +79,13 @@ class AppTheme {
 
   // ============ TYPOGRAPHY ============
   // Arabic Typography
-  static const String fontAmiri = 'Amiri';
-  static const String fontNotoNaskhArabic = 'Noto Naskh Arabic';
-  static const String fontInter = 'Inter';
+  // static const String fontAmiri = 'Amiri';
+  // static const String fontNotoNaskhArabic = 'Noto Naskh Arabic';
+  // static const String fontInter = 'Inter';
 
   // Text Styles
   static const TextStyle displayArabic = TextStyle(
-    fontFamily: fontAmiri,
+    // fontFamily: fontAmiri,
     fontSize: 48,
     fontWeight: FontWeight.w700,
     height: 64 / 48, // 1.333
@@ -93,7 +93,7 @@ class AppTheme {
   );
 
   static TextStyle headlineLg = const TextStyle(
-    fontFamily: fontInter,
+    // fontFamily: fontInter,
     fontSize: 32,
     fontWeight: FontWeight.w600,
     height: 40 / 32, // 1.25
@@ -102,7 +102,7 @@ class AppTheme {
   );
 
   static TextStyle headlineLgMobile = const TextStyle(
-    fontFamily: fontInter,
+    // fontFamily: fontInter,
     fontSize: 24,
     fontWeight: FontWeight.w600,
     height: 32 / 24, // 1.333
@@ -110,7 +110,7 @@ class AppTheme {
   );
 
   static TextStyle titleMd = const TextStyle(
-    fontFamily: fontInter,
+    // fontFamily: fontInter,
     fontSize: 18,
     fontWeight: FontWeight.w500,
     height: 28 / 18, // 1.556
@@ -118,7 +118,7 @@ class AppTheme {
   );
 
   static TextStyle bodyLg = const TextStyle(
-    fontFamily: fontInter,
+    // fontFamily: fontInter,
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 24 / 16, // 1.5
@@ -126,7 +126,7 @@ class AppTheme {
   );
 
   static TextStyle bodyArabic = const TextStyle(
-    fontFamily: fontNotoNaskhArabic,
+    // fontFamily: fontNotoNaskhArabic,
     fontSize: 22,
     fontWeight: FontWeight.w400,
     height: 36 / 22, // 1.636
@@ -134,7 +134,7 @@ class AppTheme {
   );
 
   static TextStyle labelSm = const TextStyle(
-    fontFamily: fontInter,
+    // fontFamily: fontInter,
     fontSize: 12,
     fontWeight: FontWeight.w600,
     height: 16 / 12, // 1.333
@@ -365,4 +365,3 @@ extension ThemeContext on BuildContext {
   double get spacingXl => AppTheme.spacingXl;
   double get spacingXxl => AppTheme.spacingXxl;
 }
-

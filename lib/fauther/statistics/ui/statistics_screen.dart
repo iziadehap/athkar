@@ -1,7 +1,7 @@
 import 'package:athkar/core/constants/app_theme.dart';
 import 'package:athkar/core/widgets/atmospheric_background.dart';
 import 'package:athkar/core/widgets/glass_card.dart';
-import 'package:athkar/core/widgets/nur_app_bar.dart';
+import 'package:athkar/core/widgets/athkar_app_bar.dart';
 import 'package:athkar/fauther/statistics/controller/statistics_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -192,9 +192,7 @@ class StatisticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  stats.bestStreak == 1
-                      ? '1 Day'
-                      : '${stats.bestStreak} Days',
+                  stats.bestStreak == 1 ? '1 Day' : '${stats.bestStreak} Days',
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
@@ -318,7 +316,7 @@ class StatisticsScreen extends StatelessWidget {
               'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                fontFamily: AppTheme.fontAmiri,
+                // fontFamily: AppTheme.fontAmiri,
                 fontSize: 22,
                 color: AppTheme.tertiary,
               ),
@@ -328,7 +326,7 @@ class StatisticsScreen extends StatelessWidget {
               '"Verily, in the remembrance of Allah do hearts find rest."',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: AppTheme.fontInter,
+                // fontFamily: AppTheme.fontInter,
                 fontSize: 16,
                 color: AppTheme.onSurfaceVariant.withValues(alpha: 0.8),
                 fontStyle: FontStyle.italic,
@@ -358,13 +356,13 @@ class StatisticsScreen extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                     width: 14,
-                    height: (constraints.maxHeight * scaleHeight).clamp(4.0, constraints.maxHeight),
+                    height: (constraints.maxHeight * scaleHeight)
+                        .clamp(4.0, constraints.maxHeight),
                     decoration: BoxDecoration(
                       color: isToday
                           ? AppTheme.primary
                           : AppTheme.primary.withValues(alpha: 0.4),
-                      borderRadius:
-                          BorderRadius.circular(AppTheme.roundedFull),
+                      borderRadius: BorderRadius.circular(AppTheme.roundedFull),
                     ),
                   ),
                 );
@@ -409,8 +407,7 @@ class StatisticsScreen extends StatelessWidget {
             Container(
               width: 44,
               height: 44,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: bgColor),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: bgColor),
               child: Icon(icon, color: iconColor),
             ),
             const SizedBox(height: 12),

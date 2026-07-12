@@ -1,3 +1,4 @@
+import 'package:athkar/core/constants/app_theme.dart';
 import 'package:athkar/core/model.dart';
 import 'package:athkar/core/service/storage_service.dart';
 import 'package:athkar/fauther/settings/controller/settings_controller.dart';
@@ -201,14 +202,14 @@ class TasbeehController extends GetxController {
   void resetAll() {
     Get.dialog(
       AlertDialog(
-        backgroundColor: const Color(0xFF191F31),
+        backgroundColor: AppTheme.surfaceContainerHigh,
         title: const Text(
           'Reset Dhikr Library?',
-          style: TextStyle(color: Color(0xFFDCE1FB)),
+          style: TextStyle(color: AppTheme.onSurface),
         ),
         content: const Text(
           'This will restore the default dhikr list. Your statistics will be kept.',
-          style: TextStyle(color: Color(0xFFBFC9C3)),
+          style: TextStyle(color: AppTheme.onSurfaceVariant),
         ),
         actions: [
           TextButton(onPressed: () => Get.back(), child: const Text('Cancel')),
@@ -220,7 +221,7 @@ class TasbeehController extends GetxController {
               currentCount.value = 0;
               Get.back();
             },
-            child: const Text('Reset'),
+            child: const Text('Reset', style: TextStyle(color: AppTheme.error)),
           ),
         ],
       ),

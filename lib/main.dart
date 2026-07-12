@@ -1,7 +1,9 @@
 import 'package:athkar/core/app_shell/app_shell_ui.dart';
 import 'package:athkar/core/constants/app_constants.dart';
 import 'package:athkar/core/constants/app_theme.dart';
+import 'package:athkar/core/service/notification_service.dart';
 import 'package:athkar/fauther/home/controller/tasbeeh_controller.dart';
+import 'package:athkar/fauther/library/controller/library_controller.dart';
 import 'package:athkar/fauther/settings/controller/settings_controller.dart';
 import 'package:athkar/fauther/statistics/controller/statistics_controller.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +14,12 @@ import 'package:google_fonts/google_fonts.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+  await NotificationService.init();
 
   Get.put(SettingsController(), permanent: true);
   Get.put(StatisticsController(), permanent: true);
   Get.put(TasbeehController(), permanent: true);
+  Get.put(LibraryController(), permanent: true);
 
   runApp(const NurTasbeehApp());
 }

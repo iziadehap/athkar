@@ -1,7 +1,7 @@
 import 'package:athkar/core/constants/app_constants.dart';
 import 'package:athkar/core/constants/app_theme.dart';
 import 'package:athkar/core/widgets/atmospheric_background.dart';
-import 'package:athkar/core/widgets/nur_app_bar.dart';
+import 'package:athkar/core/widgets/athkar_app_bar.dart';
 import 'package:athkar/fauther/home/controller/tasbeeh_controller.dart';
 import 'package:athkar/fauther/settings/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
@@ -231,10 +231,10 @@ class _GesturefulTapZoneState extends State<GesturefulTapZone> {
   final List<_RippleData> _ripples = [];
   final SettingsController settingsController = Get.find<SettingsController>();
   bool get enableFeedback =>
-      settingsController.settings.value.bubleEffectEnabled;
+      settingsController.settings.value.bubbleEffectEnabled;
 
   void _onTap(TapDownDetails details, TasbeehController controller) {
-    if (settingsController.settings.value.bubleEffectEnabled) {
+    if (settingsController.settings.value.bubbleEffectEnabled) {
       final box = context.findRenderObject() as RenderBox?;
       if (box == null) return;
 
@@ -289,6 +289,7 @@ class _GesturefulTapZoneState extends State<GesturefulTapZone> {
                   height: 280,
                   child: TweenAnimationBuilder<double>(
                     tween: Tween(
+                      begin: 0.0,
                       end: fraction.clamp(0.0, 1.0),
                     ),
                     duration: const Duration(milliseconds: 180),

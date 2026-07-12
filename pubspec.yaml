@@ -36,18 +36,16 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   google_fonts: ^6.2.1
-  numberpicker: ^2.1.2
-  animated_flip_counter: ^0.3.4
   audioplayers: ^6.1.0
-  intl: ^0.18.0
-  # confetti: ^0.7.0
-  shared_preferences: ^2.2.2
-  video_player: ^2.8.2
+  intl: ^0.19.0
   auto_size_text: ^3.0.0
   get_storage: ^2.1.1
   flutter_animate: ^4.5.0
   confetti: ^0.8.0
   flutter_native_splash: ^2.4.8
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.1
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
@@ -114,6 +112,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -54,7 +54,7 @@ class NurAppBar extends StatelessWidget {
               Text(
                 AppStrings.appTitle,
                 style: TextStyle(
-                  fontFamily: AppTheme.fontAmiri,
+                  // fontFamily: AppTheme.fontAmiri,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                   color: AppTheme.tertiary,
